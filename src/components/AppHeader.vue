@@ -109,15 +109,13 @@ export default {
 
 <style>
 .header-contain {
-  background-color:#f0f8ff;
+  background-color:#E7E9FF;
   padding-top: .8rem;
 }
 .custom-background {
-  background-color: #f0f8ff !important;
+  background-color: #E7E9FF !important;
 }
-.sub-container{
-   background-color:#f0f8ff;
-}
+
 .header-text {
   font-weight: 400;
   font-size: 16px;
@@ -141,5 +139,11 @@ export default {
   height: 32px; */
   color: #fff;
   cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .load-btn {
+    padding: 4px 10px 4px 10px; 
+    font-size: 12px;
+  }
 }
 </style>
