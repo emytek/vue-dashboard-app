@@ -1,7 +1,13 @@
 <template>
   <CDropdown placement="bottom-end" variant="nav-item">
     <CDropdownToggle class="py-0 pe-0" :caret="false">
-      <CAvatar :src="avatar" size="md" />
+         <div>
+    <div class="circle-container">
+      <div class="circle" style="background-color: #E8E8E8; height: 40px; width: 40px;">
+        <span style="color: #000000; font-size: 12px; font-weight: 400; line-height: 13.2px; display: flex; align-items: center; justify-content: center;">AO</span>
+      </div>
+    </div>
+  </div>
     </CDropdownToggle>
     <CDropdownMenu class="pt-0">
       <CDropdownHeader
@@ -69,3 +75,18 @@ export default {
   },
 }
 </script>
+
+<style>
+.circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

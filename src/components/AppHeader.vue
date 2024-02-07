@@ -1,33 +1,19 @@
 <template>
-  <CHeader position="sticky" :class="headerClassNames">
+  <div class="header-contain">
+ <CHeader position="sticky" :class="[headerClassNames, 'custom-background']">
     <CContainer class="border-bottom px-4" fluid>
-      <CHeaderToggler @click="$store.commit('toggleSidebar')" style="margin-inline-start: -14px">
-        <CIcon icon="cil-menu" size="lg" />
-      </CHeaderToggler>
+    <CHeaderToggler @click="$store.commit('toggleSidebar')" v-if="isSmallScreen" style="margin-inline-start: -14px">
+      <CIcon icon="cil-menu" size="lg" />
+    </CHeaderToggler>
       <CHeaderNav class="d-none d-md-flex mx">
-      <p class="header-text">Hello Ayomide</p>
+      <p class="header-text">Hello Ayomide!</p>
       <span class="wave">👋🏼</span>
       </CHeaderNav>
       <CHeaderNav class="ms-auto">
-        <!-- <CNavItem>
-          <CNavLink href="#">
-            <CIcon icon="cil-bell" size="lg" />
-          </CNavLink>
-        </CNavItem>
-        <CNavItem>
-          <CNavLink href="#">
-            <CIcon icon="cil-list" size="lg" />
-          </CNavLink>
-        </CNavItem>
-        <CNavItem>
-          <CNavLink href="#">
-            <CIcon icon="cil-envelope-open" size="lg" />
-          </CNavLink>
-        </CNavItem> -->
         <div class="load-btn">Download Report</div>
       </CHeaderNav>
       <CHeaderNav>
-        <li class="nav-item py-1">
+        <!-- <li class="nav-item py-1">
           <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
         </li>
         <CDropdown variant="nav-item" placement="bottom-end">
@@ -68,14 +54,15 @@
         </CDropdown>
         <li class="nav-item py-1">
           <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
-        </li>
+        </li> -->
         <AppHeaderDropdownAccnt />
       </CHeaderNav>
     </CContainer>
-    <CContainer class="px-4" fluid>
+    <!-- <CContainer class="px-4" fluid>
       <AppBreadcrumb />
-    </CContainer>
+    </CContainer> -->
   </CHeader>
+  </div>
 </template>
 
 <script>
@@ -90,29 +77,47 @@ export default {
     AppHeaderDropdownAccnt,
   },
   setup() {
-    const headerClassNames = ref('mb-4 p-0')
-    const { colorMode, setColorMode } = useColorModes('coreui-free-vue-admin-template-theme')
+    const headerClassNames = ref('mb-4 p-0');
+    const { colorMode, setColorMode } = useColorModes('coreui-free-vue-admin-template-theme');
+    const isSmallScreen = ref(window.innerWidth <= 768); 
+
+    const handleResize = () => {
+      isSmallScreen.value = window.innerWidth <= 768; 
+    };
 
     onMounted(() => {
+      window.addEventListener('resize', handleResize);
+
       document.addEventListener('scroll', () => {
         if (document.documentElement.scrollTop > 0) {
-          headerClassNames.value = 'mb-4 p-0 shadow-sm'
+          headerClassNames.value = 'mb-4 p-0 shadow-sm';
         } else {
-          headerClassNames.value = 'mb-4 p-0'
+          headerClassNames.value = 'mb-4 p-0';
         }
-      })
-    })
+      });
+    });
 
     return {
       headerClassNames,
       colorMode,
       setColorMode,
-    }
+      isSmallScreen,
+    };
   },
-}
+};
 </script>
 
 <style>
+.header-contain {
+  background-color:#f0f8ff;
+  padding-top: .8rem;
+}
+.custom-background {
+  background-color: #f0f8ff !important;
+}
+.sub-container{
+   background-color:#f0f8ff;
+}
 .header-text {
   font-weight: 400;
   font-size: 16px;
@@ -121,11 +126,20 @@ export default {
   margin-top: 0.8rem;
 }
 .wave {
-  margin-left: 0.6rem;
+  margin-left: 0.4rem;
 }
 .mx {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.load-btn {
+  border-radius: 30px;
+  padding: 7px 35px 7px 35px;
+  background-color: #4568D1;
+  /* width: 203px;
+  height: 32px; */
+  color: #fff;
+  cursor: pointer;
 }
 </style>
