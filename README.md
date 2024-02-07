@@ -1,24 +1,3 @@
-# CoreUI Free Vue Admin Template [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%Vue%204%20Admin%20Template%20&url=https://coreui.io&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
-[![npm package][npm-coreui-badge]][npm-coreui]
-[![NPM downloads][npm-coreui-download]][npm-coreui]
-[![@coreui vue](https://img.shields.io/badge/@coreui%20-vue-lightgrey.svg?style=flat-square)](https://github.com/coreui/vue)
-[![npm package][npm-coreui-vue-badge]][npm-coreui-vue]
-[![NPM downloads][npm-coreui-vue-download]][npm-coreui-vue]  
-
-[npm-coreui]: https://www.npmjs.com/package/@coreui/coreui
-[npm-coreui-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
-[npm-coreui-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
-[npm-coreui-vue]: https://www.npmjs.com/package/@coreui/vue
-[npm-coreui-vue-badge]: https://img.shields.io/npm/v/@coreui/vue.png?style=flat-square
-[npm-coreui-vue-download]: https://img.shields.io/npm/dm/@coreui/vue.svg?style=flat-square
-[npm]: https://www.npmjs.com/package/@coreui/vue
-
-[![Bootstrap Admin Template](https://assets.coreui.io/products/coreui-free-bootstrap-admin-template-light-dark.webp)](https://coreui.io/product/free-react-admin-template/)
-
-CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of redundant components, so the app is light enough to offer ultimate user experience. This means mobile devices also, where the navigation is just as easy and intuitive as on a desktop or laptop. The CoreUI Layout API lets you customize your project for almost any device – be it Mobile, Web or WebApp – CoreUI covers them all!
 
 ## Table of Contents
 
@@ -36,29 +15,6 @@ CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of 
 * [Support CoreUI Development](#support-coreui-development)
 * [Copyright and License](#copyright-and-license)
 
-## Versions
-
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
-* [CoreUI Free Angular Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
-* [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
-* [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
-
-## CoreUI PRO
-
-* 💪  [CoreUI PRO Angular Admin Template](https://coreui.io/product/angular-dashboard-template/)
-* 💪  [CoreUI PRO Bootstrap Admin Template](https://coreui.io/product/bootstrap-dashboard-template/)
-* 💪  [CoreUI PRO React Admin Template](https://coreui.io/product/react-dashboard-template/)
-* 💪  [CoreUI PRO Vue Admin Template](https://coreui.io/product/vue-dashboard-template/)
-
-## CoreUI PRO Vue Admin Templates
-
-| Default Theme | Light Theme |
-| --- | --- |
-| [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_default_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=default) | [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_light_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=light)|
-
-| Default Theme v3 | Light Theme v3 |
-| --- | --- |
-| [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_default_v3_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=default-v3) | [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_light_v3_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=light)|
 
 ## Quick Start
 
