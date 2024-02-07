@@ -15,29 +15,6 @@
 * [Support CoreUI Development](#support-coreui-development)
 * [Copyright and License](#copyright-and-license)
 
-## Versions
-
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
-* [CoreUI Free Angular Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
-* [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
-* [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
-
-## CoreUI PRO
-
-* 💪  [CoreUI PRO Angular Admin Template](https://coreui.io/product/angular-dashboard-template/)
-* 💪  [CoreUI PRO Bootstrap Admin Template](https://coreui.io/product/bootstrap-dashboard-template/)
-* 💪  [CoreUI PRO React Admin Template](https://coreui.io/product/react-dashboard-template/)
-* 💪  [CoreUI PRO Vue Admin Template](https://coreui.io/product/vue-dashboard-template/)
-
-## CoreUI PRO Vue Admin Templates
-
-| Default Theme | Light Theme |
-| --- | --- |
-| [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_default_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=default) | [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_light_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=light)|
-
-| Default Theme v3 | Light Theme v3 |
-| --- | --- |
-| [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_default_v3_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=default-v3) | [![CoreUI PRO Vue Admin Template](https://coreui.io/images/templates/coreui_pro_light_v3_light_dark.webp)](https://coreui.io/product/vue-dashboard-template/?theme=light)|
 
 ## Quick Start
 
