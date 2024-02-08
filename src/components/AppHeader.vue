@@ -1,6 +1,6 @@
 <template>
   <div class="header-contain">
- <CHeader position="sticky" :class="[headerClassNames, 'custom-background']">
+ <CHeader  :class="[headerClassNames, 'custom-background']">
     <CContainer class="border-bottom px-4" fluid>
    <CHeaderToggler @click="$store.commit('toggleSidebar')"  style="margin-inline-start: -14px">
       <CIcon icon="cil-menu" v-if="isSmallScreen" size="lg" />

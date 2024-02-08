@@ -1,65 +1,76 @@
 <template>
- <CRow :xs="{ gutter: 4 }" class="custom-row">
-    <CCol :sm="6" :xl="4" :xxl="3" class="custom-widget">
-      <CWidgetStatsA class="main-widget">
-        <p class="top-info">NO OF USERS</p>
-        <p class="stat">453</p>
-      </CWidgetStatsA>
-    </CCol>
-    <CCol :sm="6" :xl="4" :xxl="3" class="custom-widget">
-      <CWidgetStatsA class="main-widget">
-        <p class="top-info">TOTAL MESSAGES SENT</p>
-        <p class="stat">453</p>
-      </CWidgetStatsA>
-    </CCol>
-    <CCol :sm="6" :xl="4" :xxl="3" class="custom-widget">
-      <CWidgetStatsA class="main-widget">
-        <p class="top-info">TOTAL MEDIA STORAGE USED</p>
-        <p class="stat">453</p>
-      </CWidgetStatsA>
-    </CCol>
-    <CCol :sm="6" :xl="4" :xxl="3" class="custom-widget">
-      <CWidgetStatsA class="main-widget">
-        <p class="top-info">TOTAL MEDIA SENT</p>
-        <p class="stat">453</p>
-      </CWidgetStatsA>
-    </CCol>
-  </CRow>
+<div>
+<CRow :xs="{ gutter: 4 }" class="custom-row">
+      <CCol v-for="widget in widgets" :key="widget.id" :sm="6" :xl="4" :xxl="3" class="custom-widget">
+        <CWidgetStatsA class="main-widget">
+          <p class="top-info">{{ widget.title }}</p>
+          <p class="stat">{{ widget.value }}</p>
+        </CWidgetStatsA>
+      </CCol>
+    </CRow>
+  <CSpinner v-if="loading" />
+  </div>
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
-import { CChart } from '@coreui/vue-chartjs'
-import { getStyle } from '@coreui/utils'
+import axios from 'axios';
 
 export default {
-  name: 'WidgetsStatsA',
-  components: {
-    CChart,
+  data() {
+    return {
+      loading: false,
+      widgets: [
+        { id: 1, title: 'NO OF USERS', value: 0 },
+        { id: 2, title: 'TOTAL MESSAGE SENT', value: 0 },
+        { id: 3, title: 'TOTAL MEDIA STORAGE USED', value: 0 },
+        { id: 4, title: 'TOTAL MEDIA SENT', value: 0 },
+      ],
+    };
   },
-  setup() {
-    const widgetChartRef1 = ref()
-    const widgetChartRef2 = ref()
-
-    onMounted(() => {
-      document.documentElement.addEventListener('ColorSchemeChange', () => {
-        if (widgetChartRef1.value) {
-          widgetChartRef1.value.chart.data.datasets[0].pointBackgroundColor =
-            getStyle('--cui-primary')
-          widgetChartRef1.value.chart.update()
-        }
-
-        if (widgetChartRef2.value) {
-          widgetChartRef2.value.chart.data.datasets[0].pointBackgroundColor =
-            getStyle('--cui-info')
-          widgetChartRef2.value.chart.update()
-        }
-      })
-    })
-
-    return { getStyle, widgetChartRef1, widgetChartRef2 }
+  mounted() {
+    this.fetchData();
   },
-}
+  methods: {
+    fetchData() {
+      this.loading = true;
+      axios.get('https://sfe-m3if.onrender.com/api/v1/chat_dashboard')
+        .then(response => {
+          const data = response.data.data;
+          this.widgets.forEach(widget => {
+            switch (widget.title) {
+              case 'NO OF USERS':
+                widget.value = data.numberOfUsers;
+                break;
+              case 'TOTAL MESSAGE SENT':
+                widget.value = data.totalMessagesSent;
+                break;
+              case 'TOTAL MEDIA SENT':
+                widget.value = data.totalMediaSent;
+                break;
+              case 'TOTAL MEDIA STORAGE USED':
+                widget.value = this.formatStorage(data.totalStorageUsed);
+                break;
+            }
+          });
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        })
+        .finally(() => {
+          this.loading = false;
+        });
+    },
+    formatStorage(bytes) {
+      if (bytes >= 1e9) {
+        return (bytes / 1e9).toFixed(2) + 'GB';
+      } else if (bytes >= 1e6) {
+        return (bytes / 1e6).toFixed(2) + 'MB';
+      } else {
+        return bytes + 'B';
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
