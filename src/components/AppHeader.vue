@@ -2,9 +2,9 @@
   <div class="header-contain">
  <CHeader position="sticky" :class="[headerClassNames, 'custom-background']">
     <CContainer class="border-bottom px-4" fluid>
-    <CHeaderToggler @click="$store.commit('toggleSidebar')" style="margin-inline-start: -14px">
-      <!-- <CIcon icon="cil-menu" size="lg" /> -->
-      <img src="@/assets/icons/compress.svg" alt="">
+   <CHeaderToggler @click="$store.commit('toggleSidebar')"  style="margin-inline-start: -14px">
+      <CIcon icon="cil-menu" v-if="isSmallScreen" size="lg" />
+      <img src="@/assets/icons/compress.svg" alt="" v-show="!isSmallScreen" />
     </CHeaderToggler>
       <CHeaderNav class="d-none d-md-flex mx">
       <p class="header-text">Hello Ayomide!</p>

@@ -18,12 +18,12 @@ export default {
     const mainChartRef = ref()
     const data = {
       // labels: ['JAn', 'February', 'March', 'April', 'May', 'June', 'July'],
-      labels: ['MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT', 'SUN'],
+      labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL' ],
       datasets: [
         {
           label: 'My First dataset',
-          backgroundColor: '#FFEFD5',
-          borderColor: '#EA8D51',
+          backgroundColor: '#b8f6e9',
+          borderColor: '#15AE73',
           pointHoverBackgroundColor: getStyle('--cui-info'),
           borderWidth: 2,
           data: [
