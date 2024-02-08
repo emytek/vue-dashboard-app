@@ -2,8 +2,9 @@
   <div class="header-contain">
  <CHeader position="sticky" :class="[headerClassNames, 'custom-background']">
     <CContainer class="border-bottom px-4" fluid>
-    <CHeaderToggler @click="$store.commit('toggleSidebar')" v-if="isSmallScreen" style="margin-inline-start: -14px">
-      <CIcon icon="cil-menu" size="lg" />
+    <CHeaderToggler @click="$store.commit('toggleSidebar')" style="margin-inline-start: -14px">
+      <!-- <CIcon icon="cil-menu" size="lg" /> -->
+      <img src="@/assets/icons/compress.svg" alt="">
     </CHeaderToggler>
       <CHeaderNav class="d-none d-md-flex mx">
       <p class="header-text">Hello Ayomide!</p>

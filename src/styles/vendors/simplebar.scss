@@ -9,3 +9,21 @@
   line-height: 24px;
   color: #9999BC;
 }
+.nav-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  // background-color: #EA8D51;
+  color: white;
+}
+
+.nav-icon.active {
+  filter: brightness(1.5);
+}
+
+.nav-name.active {
+  color: #EA8D51;
+}

@@ -12,20 +12,20 @@ const normalizePath = (path) =>
     .replace(/#.*$/, '')
     .replace(/(index)?\.(html)$/, '')
 
-const isActiveLink = (route, link) => {
-  if (link === undefined) {
-    return false
-  }
-
-  if (route.hash === link) {
-    return true
-  }
-
-  const currentPath = normalizePath(route.path)
-  const targetPath = normalizePath(link)
-
-  return currentPath === targetPath
-}
+    const isActiveLink = (route, link) => {
+      if (link === undefined) {
+        return false
+      }
+    
+      if (route.hash === link) {
+        return true
+      }
+    
+      const currentPath = normalizePath(route.path)
+      const targetPath = normalizePath(link)
+    
+      return currentPath === targetPath
+    }
 
 const isActiveItem = (route, item) => {
   if (isActiveLink(route, item.to)) {
@@ -49,12 +49,23 @@ const AppSidebarNav = defineComponent({
   setup() {
     const route = useRoute()
     const firstRender = ref(true)
+    const currentLink = ref(null)
 
     onMounted(() => {
       firstRender.value = false
     })
 
+    const setActiveLink = (link) => {
+      currentLink.value = link
+    }
+
     const renderItem = (item) => {
+      const isActive = isActiveItem(route, item)
+
+      if (isActive) {
+        setActiveLink(item.name)
+      }
+
       if (item.items) {
         return h(
           CNavGroup,
@@ -90,6 +101,7 @@ const AppSidebarNav = defineComponent({
                 h(
                   resolveComponent(item.component),
                   {
+                    class: `nav-item ${isActive ? 'active' : ''}`,
                     active: props.isActive,
                     as: 'div',
                     href: props.href,
@@ -100,39 +112,40 @@ const AppSidebarNav = defineComponent({
                       item.icon
                         ? typeof item.icon === 'string'
                           ? h('img', {
-                              class: 'nav-icon',
+                              class: `nav-icon ${isActive ? 'active' : ''}`,
                               src: item.icon,
                               alt: 'Icon',
                             })
                           : item.icon // If it's not a string, assume it's a custom icon VNode
                         : h('span', { class: 'nav-icon' }, h('span', { class: 'nav-icon-bullet' })),
-                        h('span', { class: 'nav-name' }, item.name),
+                      h('span', { class: `nav-name ${isActive ? 'active' : ''}` }, item.name),
                     ],
                   },
                 ),
             },
           )
         : h(
-            resolveComponent(item.component),
-            {
-              as: 'div',
-            },
-            {
-              default: () => item.name,
-            },
-          )
+          resolveComponent(item.component),
+          {
+            class: `nav-item ${isActive ? 'active' : ''}`,
+            as: 'div',
+          },
+          {
+            default: () => item.name,
+          },
+        )
     }
 
     return () =>
-      h(
-        CSidebarNav,
-        {
-          as: simplebar,
-        },
-        {
-          default: () => nav.map((item) => renderItem(item)),
-        },
-      )
+    h(
+      CSidebarNav,
+      {
+        as: simplebar,
+      },
+      {
+        default: () => nav.map((item) => renderItem(item)),
+      },
+    )
   },
 })
 export { AppSidebarNav }
