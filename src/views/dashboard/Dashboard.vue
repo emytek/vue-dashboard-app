@@ -5,7 +5,8 @@
      <Tabs />
     <SearchVue />
     </div>
-    <h2>Hello</h2>
+    <Table />
+   
 
   </div>
 </template>
@@ -22,6 +23,7 @@ import WidgetsStatsA from './../widgets/WidgetsStatsTypeA.vue'
 import WidgetsStatsD from './../widgets/WidgetsStatsTypeD.vue'
 import SearchVue from '../../components/UIComponents/Search.vue'
 import Tabs from '../../components/UIComponents/Tabs.vue'
+import Table from '../../components/UIComponents/FeatureTable.vue'
 
 export default {
   name: 'Dashboard',
@@ -30,7 +32,8 @@ export default {
     WidgetsStatsA,
     WidgetsStatsD,
     SearchVue,
-    Tabs
+    Tabs,
+    Table
   },
   setup() {
     const progressGroupExample1 = [
