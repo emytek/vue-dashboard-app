@@ -7,7 +7,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Get Started',
-    to: '/get-started',
+    to: '/dashboard',
     icon:'/icons/circuit.png',
   },
 
