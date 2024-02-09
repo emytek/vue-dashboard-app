@@ -22,7 +22,7 @@ export default {
       datasets: [
         {
           label: 'My First dataset',
-          backgroundColor: '#FFEFD5',
+          backgroundColor: '#FFF1E9',
           borderColor: '#EA8D51',
           pointHoverBackgroundColor: getStyle('--cui-info'),
           borderWidth: 2,
