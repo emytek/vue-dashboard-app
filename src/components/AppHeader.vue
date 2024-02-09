@@ -10,58 +10,16 @@
       <p class="header-text">Hello Ayomide!</p>
       <span class="wave">👋🏼</span>
       </CHeaderNav>
-      <CHeaderNav class="ms-auto">
-        <div class="load-btn">Download Report</div>
-      </CHeaderNav>
+    <CHeaderNav class="ms-auto">
+          <div class="load-btn" @mouseover="showDownloadBtn = true" @mouseleave="showDownloadBtn = false">
+            <span v-if="!showDownloadBtn">Download Report</span>
+            <span v-else class="download-icon">📊</span>
+          </div>
+        </CHeaderNav>
       <CHeaderNav>
-        <!-- <li class="nav-item py-1">
-          <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
-        </li>
-        <CDropdown variant="nav-item" placement="bottom-end">
-          <CDropdownToggle :caret="false">
-            <CIcon v-if="colorMode === 'dark'" icon="cil-moon" size="lg" />
-            <CIcon v-else-if="colorMode === 'light'" icon="cil-sun" size="lg" />
-            <CIcon v-else icon="cil-contrast" size="lg" />
-          </CDropdownToggle>
-          <CDropdownMenu>
-            <CDropdownItem
-              :active="colorMode === 'light'"
-              class="d-flex align-items-center"
-              component="button"
-              type="button"
-              @click="setColorMode('light')"
-            >
-              <CIcon class="me-2" icon="cil-sun" size="lg" /> Light
-            </CDropdownItem>
-            <CDropdownItem
-              :active="colorMode === 'dark'"
-              class="d-flex align-items-center"
-              component="button"
-              type="button"
-              @click="setColorMode('dark')"
-            >
-              <CIcon class="me-2" icon="cil-moon" size="lg" /> Dark
-            </CDropdownItem>
-            <CDropdownItem
-              :active="colorMode === 'auto'"
-              class="d-flex align-items-center"
-              component="button"
-              type="button"
-              @click="setColorMode('auto')"
-            >
-              <CIcon class="me-2" icon="cil-contrast" size="lg" /> Auto
-            </CDropdownItem>
-          </CDropdownMenu>
-        </CDropdown>
-        <li class="nav-item py-1">
-          <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
-        </li> -->
         <AppHeaderDropdownAccnt />
       </CHeaderNav>
     </CContainer>
-    <!-- <CContainer class="px-4" fluid>
-      <AppBreadcrumb />
-    </CContainer> -->
   </CHeader>
   </div>
 </template>
@@ -117,6 +75,15 @@ export default {
   background-color: #E7E9FF !important;
 }
 
+.header-animate {
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-text:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 .header-text {
   font-weight: 400;
   font-size: 16px;
@@ -140,6 +107,21 @@ export default {
   height: 32px; */
   color: #fff;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.download-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.load-btn:hover .download-icon {
+  transform: translateY(0);
+  opacity: 1;
 }
 @media screen and (max-width: 767px) {
   .load-btn {
