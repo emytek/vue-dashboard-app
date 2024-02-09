@@ -1,5 +1,5 @@
 <template>
-  <CChart type="line" :data="data" :options="options" ref="mainChartRef" />
+  <CChart type="line" :data="data" :options="animatedOptions" ref="mainChartRef" />
 </template>
 
 <script>
