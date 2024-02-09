@@ -1,16 +1,20 @@
 <template>
-<div>
-<CRow :xs="{ gutter: 4 }" class="custom-row">
+  <div>
+    <CRow :xs="{ gutter: 4 }" class="custom-row">
       <CCol v-for="widget in widgets" :key="widget.id" :sm="6" :xl="4" :xxl="3" class="custom-widget">
         <CWidgetStatsA class="main-widget">
+          <div class="overlay">
+            <span>...</span>
+          </div>
           <p class="top-info">{{ widget.title }}</p>
           <p class="stat">{{ widget.value }}</p>
         </CWidgetStatsA>
       </CCol>
     </CRow>
-  <CSpinner v-if="loading" />
+    <CSpinner v-if="loading" />
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
@@ -84,12 +88,45 @@ export default {
   flex-direction: column;
   max-width: 230px;
   width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-widget:hover {
+    transform: scale(1.05);
 }
 
 .main-widget {
   flex-grow: 1; /* Allow the content to take the full height of the widget */
   padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
+
+.main-widget .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFF1E9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .main-widget:hover .overlay {
+    opacity: 1;
+  }
+
+  .main-widget .overlay span {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+  }
 
 .top-info {
   font-weight: 500;
@@ -109,4 +146,5 @@ export default {
     margin-left: 1.6rem;
   }
 }
+
 </style>

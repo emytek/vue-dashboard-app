@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <form @submit.prevent="handleSubmit" class="search">
-      <input v-model="searchQuery" type="text" name="" placeholder="Search...">
+      <input v-model="searchQuery" type="text" placeholder="Search...">
       <button type="submit">
-         <img src="/icons/search.svg" alt="">
+        <img src="/icons/search.svg" alt="">
       </button>
     </form>
   </div>
@@ -23,8 +23,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      // Handle the search logic here
-      console.log('Search query:', this.searchQuery);
+      this.$emit('search', this.searchQuery);
     },
   },
 };

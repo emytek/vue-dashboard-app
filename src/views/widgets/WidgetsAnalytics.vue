@@ -88,10 +88,54 @@ export default {
   flex-direction: column;
   max-width: 240px;
   width: 100%;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
   /* max-height: 120px;
   height: 100%; */
 }
 
+.custom-widget:hover {
+  /* Subtle hover effect */
+  transform: scale(1.05);
+}
+
+.animated {
+  /* Animation trigger class */
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.rotateInUpLeft {
+  /* Enter animation */
+  animation-name: rotateInUpLeft;
+}
+
+.fadeOutLeft {
+  /* Leave animation */
+  animation-name: fadeOutLeft;
+}
+
+@keyframes rotateInUpLeft {
+  0% {
+    transform: rotateX(-90deg) translateY(-100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+}
 .main-widget {
   flex-grow: 1; /* Allow the content to take the full height of the widget */
   padding: 1.2rem;

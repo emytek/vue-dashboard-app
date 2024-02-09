@@ -1,65 +1,65 @@
-// const circutIcon = import.meta.env.VITE_PUBLIC_PATH + 'icons/circut.png';
-// const analyticsIcon = import.meta.env.VITE_PUBLIC_PATH + 'icons/analytics.png';
-// import circutIcon from '@/icons/circut.png';
-// import analyticsIcon from '@/icons/analytics.png';
+// const circutIcon = import.meta.env.VITE_PUBLIC_PATH + '/new/circut.svg';
+// const analyticsIcon = import.meta.env.VITE_PUBLIC_PATH + 'icons/analytics.svg';
+// import circutIcon from '@/icons/circut.svg';
+// import analyticsIcon from '@/icons/analytics.svg';
 
 export default [
   {
     component: 'CNavItem',
     name: 'Get Started',
     to: '/dashboard',
-    icon:'/icons/circuit.png',
+    icon:'/new/start.svg',
   },
 
   {
     component: 'CNavItem',
     name: 'Analytics',
     to: '/analytics',
-    icon: '/icons/analytics.png',
+    icon: '/new/atics.svg',
   },
   {
     component: 'CNavItem',
     name: 'Chat',
     to: '/chat',
-    icon: 'icons/comment.png',
+    icon: '/new/chat.svg',
   },
 
   {
     component: 'CNavItem',
     name: 'Moderation',
     to: '/moderation',
-    icon: 'icons/silence.png',
+    icon: '/new/mod.svg',
   },
 
   {
     component: 'CNavItem',
     name: 'API & Auth Keys',
     to: '/api-keys',
-    icon: 'icons/bulb.png',
+    icon: 'new/api.svg',
   },
   {
     component: 'CNavItem',
     name: 'Announcement',
     to: '/announcement',
-    icon: 'icons/bell.png',
+    icon: '/new/bell.svg',
   },
   {
     component: 'CNavItem',
     name: 'Settings',
     to: '/settings',
-    icon: 'icons/setting.png',
+    icon: '/new/set.svg',
   },
   {
     component: 'CNavItem',
     name: 'Collapse',
     to: '/collapse',
-    icon: 'icons/arrow.png',
+    icon: '/new/cps.svg',
   },
   {
     component: 'CNavItem',
     name: 'Give Feedback',
     to: '/give-feedback',
-    icon: 'icons/exclamation.png',
+    icon: '/new/fb.svg',
   },
 
   // {

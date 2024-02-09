@@ -128,7 +128,7 @@ export default {
     };
   },
   props: {
-    user: Object, // User object to display details
+    userData: Object, // User object to display details
     isVisible: Boolean, // Modal visibility state
   },
   methods: {
