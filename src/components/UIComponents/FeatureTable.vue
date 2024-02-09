@@ -97,7 +97,7 @@
         &gt;
       </button>
     </div>
-    <SimpleModal  
+    <MainFilter  
       :user="selectedUser"
       :is-visible="isModalVisible"
       @close-modal="closeModal" 
@@ -107,11 +107,11 @@
 
 <script>
 import axios from 'axios'
-import SimpleModal from './SimpleModal.vue'
+import MainFilter from './MainFilter.vue'
 
 export default {
   components: {
-    SimpleModal,
+    MainFilter,
   },
   data() {
     return {
